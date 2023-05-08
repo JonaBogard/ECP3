@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Nueva carpeta\Dont Touch\Practice\Calculadora\.metadata\.plugins\org.eclipse.jdt.core
+1650449417.index
+1358471199.index
+2601988780.index
