@@ -17,6 +17,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         fn = (EditText) findViewById(R.id.bfn);
         sn = (EditText) findViewById(R.id.sn);
+        sum = (Button) findViewById(R.id.sum);
+        res = (Button) findViewById(R.id.res);
+        mul = (Button) findViewById(R.id.mul);
+        div = (Button) findViewById(R.id.div);
         
     }
     
