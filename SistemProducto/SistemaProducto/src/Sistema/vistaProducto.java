@@ -4,11 +4,14 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class vistaProducto {
 
@@ -121,10 +124,53 @@ public class vistaProducto {
 		frmCrudaProductos.getContentPane().add(txtProveedor);
 		
 		JButton btnInsertar = new JButton("Insertar");
+		btnInsertar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					NegocioProducto np= new NegocioProducto();
+					np.setId(txtId.getText());
+					np.setNombre(txtNombre.getText());
+					np.setPrecio(txtPrecio.getText());
+					np.setProveedor(txtProveedor.getText());
+					clean();
+					if(np.insertarProducto()) {
+						clean();
+						JOptionPane.showMessageDialog(null, "Producto Agregado");	
+					}else {
+						JOptionPane.showMessageDialog(null, "Error");
+					}
+					
+				}catch (Exception e2){
+					JOptionPane.showMessageDialog(null, "Error");
+				}
+				
+			}
+		});
 		btnInsertar.setBounds(49, 161, 89, 23);
 		frmCrudaProductos.getContentPane().add(btnInsertar);
 		
 		JButton btnCargar = new JButton("Cargar");
+		btnCargar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					String id=JOptionPane.showInputDialog("Inserta Id");
+					NegocioProducto npc= new NegocioProducto();
+					npc.setId(id);
+					if(npc.cargarProducto()){
+						txtId.setText(npc.getId());
+						txtNombre.setText(npc.getNombre());
+						txtPrecio.setText(npc.getPrecio());
+						txtProveedor.setText(npc.getProveedor());
+						JOptionPane.showMessageDialog(null, "Found Product");
+					}else {
+						JOptionPane.showMessageDialog(null, "Error");
+					}
+				}catch (Exception e2){
+					JOptionPane.showMessageDialog(null, "Error");
+				}
+			}
+		});
 		btnCargar.setBounds(165, 161, 89, 23);
 		frmCrudaProductos.getContentPane().add(btnCargar);
 		
@@ -139,5 +185,11 @@ public class vistaProducto {
 		JButton btnLimpiar = new JButton("Limpiar");
 		btnLimpiar.setBounds(226, 195, 89, 23);
 		frmCrudaProductos.getContentPane().add(btnLimpiar);
+	}
+	public void clean(){
+		txtId.setText("");
+		txtNombre.setText("");
+		txtPrecio.setText("");
+		txtProveedor.setText("");
 	}
 }
