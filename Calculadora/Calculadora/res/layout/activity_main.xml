@@ -3,88 +3,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-   
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="105dp"
-       android:orientation="horizontal" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="First number" />
 
     <EditText
-        android:id="@+id/bfn"
-        android:layout_width="wrap_content"
+        android:id="@+id/na"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="First Number"
-        android:inputType="number" >
-
-        <requestFocus />
-    </EditText>
-   </LinearLayout>
-   
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="137dp"
-       android:orientation="horizontal" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Second number" />
+        android:hint="Numero" />
 
     <EditText
-        android:id="@+id/sn"
-        android:layout_width="wrap_content"
+        android:id="@+id/nb"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Second Number"
-        android:inputType="number" >
+        android:hint="Numero" />
 
-        <requestFocus />
-    </EditText>
-   </LinearLayout>
-   
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="106dp"
-       android:orientation="horizontal" >
-   
-    <Button
-        android:id="@+id/sum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+" />
-   
-    <Button
-        android:id="@+id/res"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-" />
-   
-    <Button
-        android:id="@+id/mul"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="X" />
-   
-    <Button
-        android:id="@+id/div"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="/" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-        <requestFocus />
-   </LinearLayout>
-<TextView
-    android:id="@+id/result"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_weight="0.5"
-    android:text="Result" />
+        <Button
+            android:id="@+id/suma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="+"
+            android:onClick="suma" />
+
+        <Button
+            android:id="@+id/resta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="-"
+            android:onClick="resta" />
+
+        <Button
+            android:id="@+id/division"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="/"
+            android:onClick="division" />
+
+        <Button
+            android:id="@+id/multiplicacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="*"
+            android:onClick="multiplicacion" />
+
+        <Button
+            android:id="@+id/limpiar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Limpiar"
+            android:onClick="multiplicacion" />
+
+        <TextView
+            android:id="@+id/resultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Resultado" />
+    </LinearLayout>
 
 </LinearLayout>
-

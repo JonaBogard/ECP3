@@ -1,0 +1,111 @@
+package SistemaOrdenes;
+
+public class NegocioOrden {
+	String OrderId;
+	String Date;
+	String Name;
+	String Address;
+	String City;
+	String State;
+	String PostalCode;
+	String Country;
+	String Region;
+	String Notes;
+	String Taxes;
+	DataOrden dp=null;
+	
+	public NegocioOrden() {
+		dp = new DataOrden();
+	}
+	
+	public boolean insertarOrden() {
+		if(dp.insertarProducto(this)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean consultarOrden() {
+		if(dp.consultarOrden(this)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	public boolean actualizarOrden() {
+		if(dp.actualizarOrden(this)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public String getOrderId() {
+		return OrderId;
+	}
+	public void setOrderId(String orderId) {
+		OrderId = orderId;
+	}
+	public String getDate() {
+		return Date;
+	}
+	public void setDate(String date) {
+		Date = date;
+	}
+	public String getName() {
+		return Name;
+	}
+	public void setName(String name) {
+		Name = name;
+	}
+	public String getAddress() {
+		return Address;
+	}
+	public void setAddress(String address) {
+		Address = address;
+	}
+	public String getCity() {
+		return City;
+	}
+	public void setCity(String city) {
+		City = city;
+	}
+	public String getState() {
+		return State;
+	}
+	public void setState(String state) {
+		State = state;
+	}
+	public String getPostalCode() {
+		return PostalCode;
+	}
+	public void setPostalCode(String postalCode) {
+		PostalCode = postalCode;
+	}
+	public String getCountry() {
+		return Country;
+	}
+	public void setCountry(String country) {
+		Country = country;
+	}
+	public String getRegion() {
+		return Region;
+	}
+	public void setRegion(String region) {
+		Region = region;
+	}
+	public String getNotes() {
+		return Notes;
+	}
+	public void setNotes(String notes) {
+		Notes = notes;
+	}
+	public String getTaxes() {
+		return Taxes;
+	}
+	public void setTaxes(String taxes) {
+		Taxes = taxes;
+	}
+
+}

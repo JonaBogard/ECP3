@@ -1,0 +1,16 @@
+package SistemaOrdenes;
+
+public class NegocioOrden {
+	String OrderId;
+	String Date;
+	String Name;
+	String Address;
+	String City;
+	String State;
+	String PostalCode;
+	String Country;
+	String Region;
+	String Notes;
+	String Taxes;
+
+}

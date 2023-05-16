@@ -1,0 +1,22 @@
+package SistemaOrdenes;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class Test {
+
+	@org.junit.jupiter.api.Test
+	void testInsertarProducto() {
+		fail("Not yet implemented");
+	}
+
+	@org.junit.jupiter.api.Test
+	void testConsultarOrden() {
+		fail("Not yet implemented");
+	}
+
+	@org.junit.jupiter.api.Test
+	void testActualizarOrden() {
+		fail("Not yet implemented");
+	}
+
+}
