@@ -1,0 +1,201 @@
+package SistemVehiculo;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class VistaVehiculo {
+
+	private JFrame frame;
+	private JTextField txtVehiculoId;
+	private JTextField txtMarca;
+	private JTextField txtModelo;
+	private JTextField txtAno;
+	private JTextField txtColor;
+	private JTextField txtTipo;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VistaVehiculo window = new VistaVehiculo();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public VistaVehiculo() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+
+		JLabel lblVehiculoId = new JLabel("VehiculoId");
+		lblVehiculoId.setBounds(91, 31, 83, 14);
+		frame.getContentPane().add(lblVehiculoId);
+
+		txtVehiculoId = new JTextField();
+		txtVehiculoId.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (txtVehiculoId.getText().length() >= 3) {
+					e.consume();
+				}
+			}
+		});
+		txtVehiculoId.setBounds(199, 28, 152, 20);
+		frame.getContentPane().add(txtVehiculoId);
+		txtVehiculoId.setColumns(10);
+
+		txtMarca = new JTextField();
+		txtMarca.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (txtMarca.getText().length() >= 20) {
+					e.consume();
+				}
+			}
+		});
+		txtMarca.setColumns(10);
+		txtMarca.setBounds(199, 59, 152, 20);
+		frame.getContentPane().add(txtMarca);
+
+		JLabel lblMarca = new JLabel("Marca");
+		lblMarca.setBounds(91, 62, 83, 14);
+		frame.getContentPane().add(lblMarca);
+
+		txtModelo = new JTextField();
+		txtModelo.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (txtModelo.getText().length() >= 10) {
+					e.consume();
+				}
+			}
+		});
+		txtModelo.setColumns(10);
+		txtModelo.setBounds(199, 92, 152, 20);
+		frame.getContentPane().add(txtModelo);
+
+		JLabel lblModelo = new JLabel("Modelo");
+		lblModelo.setBounds(91, 95, 83, 14);
+		frame.getContentPane().add(lblModelo);
+
+		txtAno = new JTextField();
+		txtAno.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (txtAno.getText().length() >= 4) {
+					e.consume();
+				}
+			}
+		});
+		txtAno.setColumns(10);
+		txtAno.setBounds(199, 123, 152, 20);
+		frame.getContentPane().add(txtAno);
+
+		JLabel lblAno = new JLabel("Año");
+		lblAno.setBounds(91, 126, 83, 14);
+		frame.getContentPane().add(lblAno);
+
+		txtColor = new JTextField();
+		txtColor.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (txtColor.getText().length() >= 10) {
+					e.consume();
+				}
+			}
+		});
+		txtColor.setColumns(10);
+		txtColor.setBounds(199, 154, 152, 20);
+		frame.getContentPane().add(txtColor);
+
+		JLabel lblColor = new JLabel("Color");
+		lblColor.setBounds(91, 157, 83, 14);
+		frame.getContentPane().add(lblColor);
+
+		txtTipo = new JTextField();
+		txtTipo.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (txtTipo.getText().length() >= 10) {
+					e.consume();
+				}
+			}
+		});
+		txtTipo.setColumns(10);
+		txtTipo.setBounds(199, 185, 152, 20);
+		frame.getContentPane().add(txtTipo);
+
+		JLabel lblTipo = new JLabel("Tipo");
+		lblTipo.setBounds(91, 188, 83, 14);
+		frame.getContentPane().add(lblTipo);
+
+		JButton btnAgregar = new JButton("Agregar");
+		btnAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					NegocioVehiculo nv= new NegocioVehiculo();
+					nv.setId(txtId.getText());
+					nv.setNombre(txtNombre.getText());
+					nv.setPrecio(txtPrecio.getText());
+					nv.setProveedor(txtProveedor.getText());
+					limpiar();
+					if(np.insertarProducto()) {
+						clean();
+						JOptionPane.showMessageDialog(null, "Producto Agregado");	
+					}else {
+						JOptionPane.showMessageDialog(null, "Error");
+					}
+					
+				}catch (Exception e2){
+					JOptionPane.showMessageDialog(null, "Error");
+				}
+			}
+		});
+		btnAgregar.setBounds(31, 227, 89, 23);
+		frame.getContentPane().add(btnAgregar);
+
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.setBounds(160, 227, 89, 23);
+		frame.getContentPane().add(btnActualizar);
+
+		JButton btnCargar = new JButton("Cargar");
+		btnCargar.setBounds(296, 227, 89, 23);
+		frame.getContentPane().add(btnCargar);
+	}
+	
+	public void limpiar() {
+		txtVehiculoId.setText("");
+		txtMarca.setText("");
+		txtModelo.setText("");
+		txtAno.setText("");
+		txtColor.setText("");
+		txtTipo.setText("");
+	}
+	
+}

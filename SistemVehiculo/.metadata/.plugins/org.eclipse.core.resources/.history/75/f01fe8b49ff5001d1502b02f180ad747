@@ -1,0 +1,39 @@
+package SistemVehiculo;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class DataVehiculo {
+	Connection cx;
+
+	public Connection conectar() {
+		try {
+			cx = DriverManager.getConnection("jdbc:mysql://localhost:3306/simulacion", "root", "");
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return cx;
+	}
+
+	public boolean insertarVehiculo(NegocioVehiculo nv) {
+		PreparedStatement ps = null;
+		try {
+			ps = conectar().prepareStatement("INSERT INTO orders VALUES(?,?,?,?,?,?)");
+			ps.setString(1, nv.getVehiculoId());
+			ps.setString(2, nv.getMarca());
+			ps.setString(3, nv.getModelo());
+			ps.setString(4, nv.getAno());
+			ps.setString(5, nv.getColor());
+			ps.setString(6, nv.getTipo());
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+}

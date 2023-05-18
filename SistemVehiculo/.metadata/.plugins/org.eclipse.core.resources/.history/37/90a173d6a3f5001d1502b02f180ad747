@@ -1,0 +1,22 @@
+package SistemVehiculo;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class Test {
+
+	@org.junit.jupiter.api.Test
+	void testInsertarVehiculo() {
+		fail("Not yet implemented");
+	}
+
+	@org.junit.jupiter.api.Test
+	void testCargarVehiculo() {
+		fail("Not yet implemented");
+	}
+
+	@org.junit.jupiter.api.Test
+	void testActualizarVehiculo() {
+		fail("Not yet implemented");
+	}
+
+}
